@@ -2,7 +2,7 @@ interface Game {
   readonly title: string;
   genre: string;
   stockAmount: number;
-  tags: string[];
+  tags?: string[];
   getSimilar: (title: string) => void;
 }
 
@@ -19,5 +19,28 @@ const LOL: Game = {
   tags: ['lol', 'br', 'hu3'],
   getSimilar (title: string) {
     console.log(`${title} is similar to Mu Gnn`)
+  }
+}
+
+class CSGo implements Game {
+  title: string
+  genre: string
+  stockAmount: number
+  tags: string[]
+
+  constructor (
+    title: string,
+    genre: string,
+    stockAmount: number,
+    tags: Array<string>
+  ) {
+      this.title = title
+      this.genre = genre
+      this.stockAmount = stockAmount
+      this.tags = tags
+  }
+
+  getSimilar () {
+    console.log('Similar Game Here')
   }
 }

@@ -8,3 +8,15 @@ var LOL = {
         console.log(title + " is similar to Mu Gnn");
     }
 };
+var CSGo = /** @class */ (function () {
+    function CSGo(title, genre, stockAmount, tags) {
+        this.title = title;
+        this.genre = genre;
+        this.stockAmount = stockAmount;
+        this.tags = tags;
+    }
+    CSGo.prototype.getSimilar = function () {
+        console.log('Similar Game Here');
+    };
+    return CSGo;
+}());
