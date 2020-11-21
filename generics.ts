@@ -27,7 +27,7 @@ function useState< S extends number | string = number > () {
 
 const state = useState<string>() // use state accept just string by now
 state.setState("Guilherme")
-state.setState(10)
+// state.setState(10)
 
 const newState = useState() // use state accept just string by now
 newState.setState(10)
