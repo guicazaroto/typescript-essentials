@@ -25,4 +25,7 @@ greet({ firstName: 'Guilherme', lastName: 'Cazaroto' })
 export default greet
 ```
 
-Para compilar use o comando **npx tsc index.ts**
+Para compilar use o comando
+```
+npx tsc index.ts
+```
