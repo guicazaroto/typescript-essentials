@@ -38,7 +38,7 @@ npx tsc index.ts --target es2015 --module commonjs --watch
 
 No exemplo acima o código será transpilado para es2015, utilizando o padrão de export "commonjs". Além disso o transpilador ficará escutando futuras alterações na base de código. 
 
-=============================================================================================
+_____________________________________________________________________________________________________________________
 
 Uma outra forma de passar parâmetros, é com a utilização do **tsconfig.json**. Veja abaixo um exemplo:
 
