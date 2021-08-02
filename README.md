@@ -53,5 +53,28 @@ Uma outra forma de passar parâmetros, é com a utilização do **tsconfig.json*
 }
 ```
 
+Existem muitas configurações possíveis para o compilador, veja no exemplo abaixo:
 
+```
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "commonjs",
+    "target": "es2017",
+    "outDir": "lib",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "allowJs": true,
+    "types": [],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": true
+  },
+  "include": ["src"]
+}
+```
+___________________________
 
