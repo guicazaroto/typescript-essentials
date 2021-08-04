@@ -101,7 +101,7 @@ let weight: float = 72.33
 ### Arrays
 
 ```
-const fruits = string[] // fruits é um array de strings
+const fruits: string[] = [] // fruits é um array de strings
 ```
 
 
