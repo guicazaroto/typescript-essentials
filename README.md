@@ -78,3 +78,14 @@ Existem muitas configurações possíveis para o compilador, veja no exemplo aba
 ```
 ___________________________
 
+## Tipos
+
+Com o typescript você pode definir os tipos que deseja receber em suas variáveis ou a própria biblioteca irá inferir os tipos assim que você atribuir valor a uma variável.
+
+No exemplo abaixo o typescript irá lançar um erro dizendo que o valor atribuído a username, na segunda atribuição, não é do tipo String.
+```
+let username = 'Guilherme'
+username = 1000
+```
+
+
