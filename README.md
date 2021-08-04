@@ -88,4 +88,14 @@ let username = 'Guilherme'
 username = 1000
 ```
 
+O outro jeito de iniciar uma variável tipada é:
+
+```
+let username: string = 'Guilherme'
+let age: number = 20
+let hasChild: boolean = true
+```
+
+
+
 
