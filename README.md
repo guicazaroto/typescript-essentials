@@ -102,6 +102,9 @@ let weight: float = 72.33
 
 ```
 const fruits: string[] = [] // fruits é um array de strings
+const product: [string, number] = ['bola', 20.50]
 ```
+
+
 
 
