@@ -88,14 +88,20 @@ let username = 'Guilherme'
 username = 1000
 ```
 
+### Tipos primitivos
 O outro jeito de iniciar uma variável tipada é:
 
 ```
 let username: string = 'Guilherme'
 let age: number = 20
 let hasChild: boolean = true
+let weight: float = 72.33
 ```
 
+### Arrays
 
+```
+const fruits = string[] // fruits é um array de strings
+```
 
 
