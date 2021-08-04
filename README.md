@@ -11,16 +11,11 @@ yarn add -D typescript
 Crie um arquivo **index.ts** e em seguida adicione o código
 
 ```
-type User = {
-  firstName: string,
-  lastName: string
-}
-function greet (user: User):void {
-  const { firstName, lastName } = user
-  console.log(`Hello ${firstName} ${lastName}`)
+function greet (name: string):void {
+  console.log(`Hello ${name}`)
 }
 
-greet({ firstName: 'Guilherme', lastName: 'Cazaroto' })
+greet('Guilherme')
 
 export default greet
 ```
@@ -104,6 +99,20 @@ let weight: float = 72.33
 const fruits: string[] = [] // fruits é um array de strings
 const product: [string, number] = ['bola', 20.50] // product é uma tupla que contem uma string e um número
 ```
+
+### Interfaces
+São utilizados para definir tipos de objetos e suas propriedades.
+
+```
+type User = {
+  firstName: string,
+  lastName: string
+}
+
+let user: User;
+
+```
+
 
 
 
