@@ -114,6 +114,25 @@ let user: User;
 ```
 
 
+### União e intersecção
+Você pode combinar dois tipos ou duas interfaces em uma mesma variável, sendo que isso pode ser feito por união ou intersecção. Quando feito por união, ambos os valores serão combinados. Quando feito por interseção o objeto assumirá a primeira estrutura utilizada.
+
+```
+export interface hasPhone {
+    name: string
+    phone: number
+}
+
+export interface hasEmail {
+    name: string
+    email: string
+}
+
+const user: hasEmail & hasPhone  // união
+const user: hasEmail | hasPhone // intersecção
+
+```
+
 
 
 
