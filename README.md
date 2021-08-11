@@ -128,8 +128,8 @@ export interface hasEmail {
     email: string
 }
 
-const user: hasEmail & hasPhone  // união
-const user: hasEmail | hasPhone // intersecção
+const user: hasEmail & hasPhone  // intersecção
+const user: hasEmail | hasPhone // união
 
 ```
 
