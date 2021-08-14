@@ -156,5 +156,34 @@ sum(1,2,3,4)
 
 ```
 
+Caso queira tornar uma função dinâmica para que posso inserir diferentes entradas e saídas dentro de um escopo definido, deverá criar assinaturas para essas funções.
+
+```
+export interface hasPhone {
+    name: string
+    phone: number
+}
+
+export interface hasEmail {
+    name: string
+    email: string
+}
+
+function sendMessage(method: 'phone', to: hasPhone):void
+function sendMessage(method: 'email', to: hasEmail):void
+
+function sendMessage (method: 'email' | 'phone', to: hasPhone | hasEmail) {
+    return `sending message to: ${to.name} by ${method}`
+}
+
+// it works
+sendMessage('email', { name: 'Guilherme', email: 'gui.cazaroto@gmail.com' })
+sendMessage('phone', { name: 'Guilherme', phone: 993845793 })
+
+// throw error
+sendMessage('email', { name: 'Guilherme', phone: 993845793 })
+sendMessage('phone', { name: 'Guilherme', phone: 'gui.cazaroto@gmail.com' })
+
+```
 
 
