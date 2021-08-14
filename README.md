@@ -133,6 +133,28 @@ const user: hasEmail | hasPhone // união
 
 ```
 
+### Tipos em funções
+
+As funções também podem ser tipadas nos parâmetros de entrada e no retorno.
+
+```
+function message (user: hasEmail): { to: string, body: string } {
+    return {
+        to: `to: ${user.name} | ${user.email}`,
+        body: 'Hello and goodmorning!'
+    }
+}
+
+message({ name: 'Guilherme', email: 'gui.cazaroto@gmail.com'})
+```
+
+Com arrow function...
+```
+const sum = (...n: number[]) => n.reduce((sum, next) => sum + next)  
+
+sum(1,2,3,4)
+
+```
 
 
 
