@@ -190,3 +190,19 @@ sendMessage('phone', { name: 'Guilherme', phone: 'gui.cazaroto@gmail.com' })
 
 Types Alias são nomes dados para um determinado tipo ou para um agrupamento de tipos possíveis. Enquanto as interfaces descrevem uma estrutura de dados, onde é permitido trabalhar com herança e mesclagem com outras interfaces.
 Outro ponto importante quando falamos de interfaces é que elas permitem declarar assinaturas de métodos.
+
+
+### Assinaturas de funções
+
+```
+// com interface
+interface Contact {
+  (contact: hasEmail, message: string):void
+}
+
+// com tipos
+type Contact = (
+  contact: hasEmail,
+  message: string
+) => void
+```
