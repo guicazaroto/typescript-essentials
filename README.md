@@ -220,6 +220,7 @@ type Contact = (
 ### Classes
 
 **Classes Abstratas**
+
 As classes podem implementar as interfaces para definir seus tipos
 
 ```
