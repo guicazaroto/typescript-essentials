@@ -219,6 +219,7 @@ type Contact = (
 
 ### Classes
 
+**Classes Abstratas**
 As classes podem implementar as interfaces para definir seus tipos
 
 ```
@@ -255,3 +256,36 @@ class User implements HasEmail {
 }
 ```
 
+Podemos definir variáveis externas ao construtor.
+
+```
+class User implements HasEmail, HasPhone {
+  readonly initState = 'BEGIN'
+  public age: number;
+  private options!: string
+
+  constructor(
+    public email: string,
+    public name: string = 'no email',
+    public phone: string
+  ) {
+    // content
+    this.age = 27
+  }
+
+  async init () {
+    this.options = await fetch('https://api.com')
+      .then(res => res.json())
+      .then(res => res)
+    
+    return this.options
+  }
+}
+```
+
+
+Podemos, ainda, trabalhar com classes abstratas...
+
+```
+
+```
