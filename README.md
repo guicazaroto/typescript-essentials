@@ -216,3 +216,42 @@ type Contact = (
   message: string
 ) => void
 ```
+
+### Classes
+
+As classes podem implementar as interfaces para definir seus tipos
+
+```
+interface HasEmail {
+  name: string,
+  email: string
+}
+
+interface HasPhone {
+  name: string,
+  phone: string
+}
+
+// utilização das interfaces
+class User implements HasEmail {
+  email: string
+  name: string
+
+  constructor(email: string, name: string) {
+    this.email = email
+    this.name = name
+  }
+}
+
+// outra forma de implementar as interfaces seria...
+
+class User implements HasEmail {
+  constructor(
+    public email: string,
+    public name: string = 'no email'
+  ) {
+    // content
+  }
+}
+```
+
