@@ -288,5 +288,23 @@ class User implements HasEmail, HasPhone {
 Podemos, ainda, trabalhar com classes abstratas...
 
 ```
+abstract class BaseRepository {
+  constructor(
+    protected serviceName: string
+  ) {
+    this.serviceName = serviceName
+  }
 
+  abstract sendServiceRequest (): void
+}
+
+class UserRepository extends BaseRepository {
+  constructor (serviceName: string) {
+    super(serviceName)
+  }
+
+  sendServiceRequest () {
+    console.log('sending request...')
+  }
+}
 ```
