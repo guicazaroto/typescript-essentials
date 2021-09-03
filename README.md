@@ -355,3 +355,18 @@ function message(callback: callbackOne<String>) {
 
 message((message) => console.log(message))
 ```
+
+Também é possível assumir o tipo do argumento passado, sem precisar indicar o tipo explicitamente.
+
+```
+function resolvePromise<T>(prom: Promise<T>): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    prom
+      .then(res =>  resolve(res))
+      .catch(err => reject(err))
+  })
+}
+
+
+resolvePromise(fetch('https://api.nuxt.com'))
+```
