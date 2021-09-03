@@ -323,7 +323,7 @@ strictBindCallApply: true
 
 ### Generics
 
-- Permita que um tipo seja definido durante o processo de implementação do mesmo
+- Permite que um tipo seja definido durante o processo de implementação do mesmo. Dessa forma determinados valores passam a ter o tipo dinâmico.
 
 ```
 interface Gen<T> {
@@ -339,7 +339,7 @@ const data: Gen<String> = {
 } 
 ```
 
-- Exemplo de uso em um callback
+Exemplo de uso em um callback
 
 ```
 interface callbackOne<T, R = void> {
