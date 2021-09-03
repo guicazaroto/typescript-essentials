@@ -320,3 +320,38 @@ strict: true
 strictFunctionTypes: true
 strictBindCallApply: true
 ```
+
+### Generics
+
+- Permita que um tipo seja definido durante o processo de implementação do mesmo
+
+```
+interface Gen<T> {
+  name: string,
+  age: number,
+  value: T
+}
+
+const data: Gen<String> = {
+  name: 'Guilherme',
+  age: 23,
+  value: 'Wineano'
+} 
+```
+
+- Exemplo de uso em um callback
+
+```
+interface callbackOne<T, R = void> {
+  (message: T): R
+}
+
+type callbackOne<T, R = void> = (message: T) => R
+
+
+function message(callback: callbackOne<String>) {
+  callback('Hi Everyone!')
+}
+
+message((message) => console.log(message))
+```
