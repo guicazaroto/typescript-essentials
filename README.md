@@ -383,3 +383,16 @@ function logginIdentity<Type extends LengthWise> (arg: Type) {
   return arg.length
 }
 ```
+
+Neste outro exemplo só permitiremos que o valor passado por argumento seja uma das chaves presentes no objeto.
+
+```
+function getProperty<Type, Key extends keyof Type>(obj: Type, key: Key) {
+  return obj[key];
+}
+ 
+let x = { a: 1, b: 2, c: 3, d: 4 };
+ 
+getProperty(x, "a");
+getProperty(x, "m");
+```
