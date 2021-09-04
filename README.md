@@ -370,3 +370,16 @@ function resolvePromise<T>(prom: Promise<T>): Promise<T> {
 
 resolvePromise(fetch('https://api.nuxt.com'))
 ```
+
+Também podemos impor limites aos tipos, dizendo quais as propriedades básicas que o tipo passado deve possuir.
+No exemplo abaixo deixamos explicito que só queremos tipos que possuam a propriedade lenngth
+
+```
+interface LengthWise {
+  length: number
+}
+
+function logginIdentity<Type extends LengthWise> (arg: Type) {
+  return arg.length
+}
+```
