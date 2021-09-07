@@ -325,7 +325,7 @@ strictBindCallApply: true
 
 ### Generics
 
-- Permite que um tipo seja definido durante o processo de implementação do mesmo. Dessa forma determinados valores passam a ter o tipo dinâmico.
+Permite que um tipo seja definido durante o processo de implementação do mesmo. Dessa forma determinados valores passam a ter o tipo dinâmico.
 
 ```
 interface Gen<T> {
