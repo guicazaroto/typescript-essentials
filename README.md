@@ -457,6 +457,7 @@ function sayHello(person: Developer | Designer): void {
 ### Bottom types
   
 O type never diz que nunca deve ser atribuído ou retornado um valor. Como funções que sempre retornam uma exceção ou que possuem um loop infinito.
+Enquanto never não pode receber nenhum atribuição, o tipo 'void' pode receber undefined e null.
   
  ```
  function callException (): never {
