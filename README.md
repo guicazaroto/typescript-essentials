@@ -396,3 +396,63 @@ let x = { a: 1, b: 2, c: 3, d: 4 };
 getProperty(x, "a");
 getProperty(x, "m");
 ```
+
+### Top and Bottom Types
+
+Any: é útil quando queremos o máximo de flexibilidade.
+Ex: Promise<any> quando não existe a necessidade demanipular o resultado a promise.
+
+```
+const myAny: any = 'Hello Any'
+myAny.foo 
+```
+
+ 
+ Unknown: é útil para valores privados que nós não queremos expor
+
+ ```
+const myUnknown: unknown = 'Hello Unknown'
+myUnknown.bar // type unknown não permite referenciar valor como 'bar'.
+```
+
+Unknown também pode ser utlizado em conjunto com type-guards
+```
+if (typeof myUnknown === 'string') {
+  myUnknown.split('')
+}
+
+if (myUnknown instanceof Promise) {
+  myUnknown.then(res => res)
+}
+```
+
+
+Podemos criar nossos próprios type guards com o uso de 'Is' e 'As'
+
+```
+interface Developer {
+  name: string;
+  bestLanguage: string;
+}
+
+interface Designer {
+  name: string;
+  bestSoftware: string;
+}
+
+function isDeveloper(person: Developer | Designer): person is Developer {
+  return (person as Developer).bestLanguage !== undefined;
+}
+
+function sayHello(person: Developer | Designer): void {
+  if (isDeveloper(person)) {
+    console.log(`Hello developer, you're really good with ${person.bestLanguage}`);
+  } else {
+    console.log(`Hello designer, you're really good with ${person.bestSoftware}`);
+  }
+}
+
+```
+
+
+
