@@ -312,7 +312,9 @@ class UserRepository extends BaseRepository {
 ### Convertendo TS para JS
 
 1 - Renomeie todos os arquivos .js para .ts, permitindo inicialmente tipos implícitos Any. Nesse primeiro momento é importante que o código seja compilado adequadamente e os testes continuem passando.
+
 2 - Corrija os tipos Any e importe tipos de bibliotecas de terceiros, caso seja necessário.
+
 3 - ative o modo estrito e corrija os erros.
 ```
 strictNullChecks: true
