@@ -397,7 +397,7 @@ getProperty(x, "a");
 getProperty(x, "m");
 ```
 
-### Top and Bottom Types
+### Top Types
 
 Any: é útil quando queremos o máximo de flexibilidade.
 Ex: Promise<any> quando não existe a necessidade demanipular o resultado a promise.
@@ -454,5 +454,15 @@ function sayHello(person: Developer | Designer): void {
 
 ```
 
-
+### Bottom types
+  
+O type never diz que nunca deve ser atribuído ou retornado um valor. Como funções que sempre retornam uma exceção ou que possuem um loop infinito.
+  
+ ```
+ function callException (): never {
+  throw new Error('ocorreu um erro') 
+ }
+ ```
+  
+  
 
