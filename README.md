@@ -595,5 +595,11 @@ const nav: Record<Pagina, InfoPagina> = {
   duration: number
 }
 
-type folcMusic = Omit<Music, "style">
+type folkMusic = Omit<Music, "style">
+  
+let myMusic:folkMusic = {
+  title: 'Like a rolling stone',
+  author: 'Bob Dylan',
+  duration: 5.34
+}
  ```
