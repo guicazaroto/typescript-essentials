@@ -519,3 +519,17 @@ let b: conditionalType<string[]>
 type userData = Partial<User>
  ```
   
+### Pick
+Permite que peguemos uma ou mais propriedades de um outro tipo/interface
+```
+  interface User {
+  name: string
+  age: number
+  occupation: string,
+  company: string
+}
+
+type userData = Partial<User>
+
+type Professional = Pick<User, 'occupation' | 'company'>
+```
