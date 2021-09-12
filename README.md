@@ -553,3 +553,17 @@ let nums: noNumbers
 nums = 'a'
 nums = 1 // dispara um erro
 ```
+  
+### Readonly
+Cria um objeto cujos as propriedades não poderão ser reatribuídas
+ 
+```
+let user: Readonly<User> = {
+  name: 'Guilherme',
+  age: 20,
+  occupation: 'dev',
+  company: 'wine'
+}
+
+user.name = 'Jonas'
+```
