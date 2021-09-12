@@ -496,4 +496,16 @@ sendMessage('email', { name: 'Guilherme', email: 'gui.cazaroto@gmail.com'})
 sendMessage('phone', { name: 'Guilherme', phone: 278374857 })
 sendMessage('fax', { number: 27837485749 })
 ```
+  
+### Ternários
+no exemplo abaixo os tipo será definidos com base em uma condição, se for passado uma promise, o tipo será igual o tipo do retorno da promise, caso contrário o tipo será igual ao passado ao Generic.
+  
+```
+type conditionalType<T> = T extends Promise<infer S> ? S : T 
 
+let a: conditionalType<Promise<number>>
+let b: conditionalType<string[]>
+```
+
+  
+  
