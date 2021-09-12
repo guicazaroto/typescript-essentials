@@ -432,25 +432,25 @@ if (myUnknown instanceof Promise) {
 Podemos criar nossos próprios type guards com o uso de 'Is' e 'As'
 
 ```
-interface Developer {
-  name: string;
-  bestLanguage: string;
+interface HasEmail {
+  name: string,
+  email: string
 }
 
-interface Designer {
-  name: string;
-  bestSoftware: string;
+interface HasPhone {
+  name: string,
+  phone: string
 }
 
-function isDeveloper(person: Developer | Designer): person is Developer {
-  return (person as Developer).bestLanguage !== undefined;
+function isEmailContact (contact: HasEmail | HasPhone): contact is HasEmail {
+  return 'email' in contact
 }
 
-function sayHello(person: Developer | Designer): void {
-  if (isDeveloper(person)) {
-    console.log(`Hello developer, you're really good with ${person.bestLanguage}`);
+function showContact(contact: HasEmail | HasPhone) {
+  if (isEmailContact(contact)) {
+    console.log(`Hi my name is ${contact.name} and my contact is ${contact.email}`)
   } else {
-    console.log(`Hello designer, you're really good with ${person.bestSoftware}`);
+    console.log(`Hi my name is ${contact.name} and my contact is ${contact.phone}`)
   }
 }
 
