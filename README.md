@@ -589,10 +589,10 @@ const nav: Record<Pagina, InfoPagina> = {
   
   ```
   interface Music {
-  title: string
-  author: string
-  style: string
-  duration: number
+    title: string
+    author: string
+    style: string
+    duration: number
 }
 
 type folkMusic = Omit<Music, "style">
