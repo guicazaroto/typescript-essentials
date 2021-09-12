@@ -583,3 +583,17 @@ const nav: Record<Pagina, InfoPagina> = {
   inicio: { titulo: "bem vindo a página - inicio" },
 };
  ```
+  
+  ### Omit
+  Permite criar um novo tipo a partir de um já existente, omitindo algumas propriedades.
+  
+  ```
+  interface Music {
+  title: string
+  author: string
+  style: string
+  duration: number
+}
+
+type folcMusic = Omit<Music, "style">
+ ```
