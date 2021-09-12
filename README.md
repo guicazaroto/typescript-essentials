@@ -567,3 +567,19 @@ let user: Readonly<User> = {
 
 user.name = 'Jonas'
 ```
+### Record
+Constrói um tipo com o conjunto de propriedades passadas no primeiro argumento (keys), assumindo que elas também terão o tipo passado no segundo argumento (type).
+ 
+ ```
+  interface InfoPagina {
+  titulo: string;
+}
+ 
+type Pagina = "inicio" | "sobre" | "contato";
+ 
+const nav: Record<Pagina, InfoPagina> = {
+  sobre: { titulo: "bem vindo a página - sobre" },
+  contato: { titulo: "bem vindo a página - contato" },
+  inicio: { titulo: "bem vindo a página - inicio" },
+};
+ ```
