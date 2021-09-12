@@ -543,3 +543,13 @@ let nums: onlyNumbers
 nums = 'a' // dispara um erro
 nums = 1
 ```
+  
+ ### Exclude
+ Exclui um subtipo específico de um tipo passado.
+ 
+ ```
+type noNumbers = Extract<'a' | 'b' | 1 | 2, number>
+let nums: noNumbers
+nums = 'a'
+nums = 1 // dispara um erro
+```
