@@ -533,3 +533,13 @@ type userData = Partial<User>
 
 type Professional = Pick<User, 'occupation' | 'company'>
 ```
+  
+### Extract
+Permite extrair apenas um subtipo específico de um tipo passado.
+
+```
+ type onlyNumbers = Extract<'a' | 'b' | 1 | 2, number>
+let nums: onlyNumbers
+nums = 'a' // dispara um erro
+nums = 1
+```
