@@ -467,5 +467,33 @@ Enquanto never não pode receber nenhum atribuição, o tipo 'void' pode receber
  }
  ```
   
+  ### Keyof
   
+  Permite referenciar as chaves de uma determinada interface e usá-la na composição dos tipos.
+  
+  ```
+interface HasEmail {
+  name: string,
+  email: string
+}
+
+interface HasPhone {
+  name: string,
+  phone: number
+}
+
+interface communicationMethods {
+  email: HasEmail
+  phone: HasPhone
+  fax: { number: number }
+}
+
+function sendMessage<T extends keyof communicationMethods>(
+  method: T , contact: communicationMethods[T]
+) {}
+
+sendMessage('email', { name: 'Guilherme', email: 'gui.cazaroto@gmail.com'})
+sendMessage('phone', { name: 'Guilherme', phone: 278374857 })
+sendMessage('fax', { number: 27837485749 })
+```
 
