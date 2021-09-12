@@ -507,5 +507,15 @@ let a: conditionalType<Promise<number>>
 let b: conditionalType<string[]>
 ```
 
-  
+ ### Partial
+  Transforma todas as propriedades de um tipo em opicionais.
+  ```
+  interface User {
+  name: string
+  age: number
+  occupation: string
+}
+
+type userData = Partial<User>
+ ```
   
