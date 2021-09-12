@@ -508,7 +508,7 @@ let b: conditionalType<string[]>
 ```
 
  ### Partial
-  Transforma todas as propriedades de um tipo em opicionais.
+  Transforma todas as propriedades de um tipo em opcionais.
   ```
   interface User {
   name: string
