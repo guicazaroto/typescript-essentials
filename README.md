@@ -603,3 +603,32 @@ let myMusic:folkMusic = {
     duration: 5.34
 }
  ```
+
+  ### Merge de declarações
+
+Caso você declare diferentes categorias de dados utilizando o mesmo nome, elas serão integradas. Sendo que, você poderá acessar cada uma delas de acordo com o contexto.
+
+```
+interface Album {
+  artist: string
+}
+
+class Album {
+  label = new Album.Band()
+}
+
+namespace Album {
+  export class Band {}
+}
+
+
+// podemos acessar ambos os contextos, após ser feito o merge
+let album: Album = {
+  artist: 'Bowie',
+  label: 'VR'
+};
+
+let space = new Album()
+space.label
+space.artist
+```
