@@ -631,4 +631,6 @@ let album: Album = {
 let space = new Album()
 space.label
 space.artist
+
+let band = new Album.Band()
 ```
