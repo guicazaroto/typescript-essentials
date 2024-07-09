@@ -2,7 +2,7 @@
 
 ### Instalação
 
-```
+```node
 yarn add -D typescript
 ```
 
@@ -10,7 +10,7 @@ yarn add -D typescript
 
 Crie um arquivo **index.ts** e em seguida adicione o código
 
-```
+```ts
 function greet (name: string):void {
   console.log(`Hello ${name}`)
 }
@@ -21,13 +21,14 @@ export default greet
 ```
 
 Para compilar use o comando
-```
+
+```node
 npx tsc index.ts
 ```
 
 Você pode adicionar parâmetros adicionais durante o processo de transpilação:
 
-```
+```node
 npx tsc index.ts --target es2015 --module commonjs --watch
 ```
 
@@ -37,7 +38,7 @@ ________________________________________________________________________________
 
 Uma outra forma de passar parâmetros, é com a utilização do **tsconfig.json**. Veja abaixo um exemplo:
 
-```
+```json
 {
   "compilerOptions": {
     "module": "commonjs",
@@ -50,7 +51,7 @@ Uma outra forma de passar parâmetros, é com a utilização do **tsconfig.json*
 
 Existem muitas configurações possíveis para o compilador, veja no exemplo abaixo:
 
-```
+```json
 {
   "compilerOptions": {
     "jsx": "react",
@@ -78,7 +79,7 @@ ___________________________
 Com o typescript você pode definir os tipos que deseja receber em suas variáveis ou a própria biblioteca irá inferir os tipos assim que você atribuir valor a uma variável.
 
 No exemplo abaixo o typescript irá lançar um erro dizendo que o valor atribuído a username, na segunda atribuição, não é do tipo String.
-```
+```ts
 let username = 'Guilherme'
 username = 1000
 ```
@@ -86,7 +87,7 @@ username = 1000
 ### Tipos primitivos
 O outro jeito de iniciar uma variável tipada é:
 
-```
+```ts
 let username: string = 'Guilherme'
 let age: number = 20
 let hasChild: boolean = true
@@ -95,7 +96,7 @@ let weight: float = 72.33
 
 ### Arrays
 
-```
+```ts
 const fruits: string[] = [] // fruits é um array de strings
 const product: [string, number] = ['bola', 20.50] // product é uma tupla que contem uma string e um número
 ```
@@ -103,7 +104,7 @@ const product: [string, number] = ['bola', 20.50] // product é uma tupla que co
 ### Interfaces
 São utilizados para definir tipos de objetos e suas propriedades.
 
-```
+```ts
 type User = {
   firstName: string,
   lastName: string
@@ -117,7 +118,7 @@ let user: User;
 ### União e intersecção
 Você pode combinar dois tipos ou duas interfaces em uma mesma variável, sendo que isso pode ser feito por união ou intersecção. Quando feito por união, ambos os valores serão combinados. Quando feito por interseção o objeto assumirá a primeira estrutura utilizada.
 
-```
+```ts
 export interface hasPhone {
     name: string
     phone: number
@@ -137,7 +138,7 @@ const user: hasEmail | hasPhone // união
 
 As funções também podem ser tipadas nos parâmetros de entrada e no retorno.
 
-```
+```ts
 function message (user: hasEmail): { to: string, body: string } {
     return {
         to: `to: ${user.name} | ${user.email}`,
@@ -149,7 +150,7 @@ message({ name: 'Guilherme', email: 'gui.cazaroto@gmail.com'})
 ```
 
 Com arrow function...
-```
+```ts
 const sum = (...n: number[]) => n.reduce((sum, next) => sum + next)  
 
 sum(1,2,3,4)
@@ -158,7 +159,7 @@ sum(1,2,3,4)
 
 Caso queira tornar uma função dinâmica para que posso inserir diferentes entradas e saídas dentro de um escopo definido, deverá criar assinaturas para essas funções.
 
-```
+```ts
 export interface hasPhone {
     name: string
     phone: number
@@ -191,7 +192,7 @@ sendMessage('phone', { name: 'Guilherme', phone: 'gui.cazaroto@gmail.com' })
 Types Alias são nomes dados para um determinado tipo ou para um agrupamento de tipos possíveis. Enquanto as interfaces descrevem uma estrutura de dados, onde é permitido trabalhar com herança e mesclagem com outras interfaces.
 Outro ponto importante quando falamos de interfaces é que elas permitem declarar assinaturas de métodos.
 
-```
+```ts
 export interface hasPhone {
     name: string
     phone: number
@@ -204,7 +205,7 @@ export interface hasInternationalPhone extends hasPhone {
 
 ### Assinaturas de funções
 
-```
+```ts
 // com interface
 interface Contact {
   (contact: hasEmail, message: string):void
@@ -223,7 +224,7 @@ type Contact = (
 
 As classes podem implementar as interfaces para definir seus tipos
 
-```
+```ts
 interface HasEmail {
   name: string,
   email: string
@@ -259,7 +260,7 @@ class User implements HasEmail {
 
 Podemos definir variáveis externas ao construtor.
 
-```
+```ts
 class User implements HasEmail, HasPhone {
   readonly initState = 'BEGIN'
   public age: number;
@@ -287,7 +288,7 @@ class User implements HasEmail, HasPhone {
 
 Podemos, ainda, trabalhar com classes abstratas...
 
-```
+```ts
 abstract class BaseRepository {
   constructor(
     protected serviceName: string
@@ -316,18 +317,23 @@ class UserRepository extends BaseRepository {
 2 - Corrija os tipos Any e importe tipos de bibliotecas de terceiros, caso seja necessário.
 
 3 - ative o modo estrito e corrija os erros.
-```
-strictNullChecks: true
-strict: true
-strictFunctionTypes: true
-strictBindCallApply: true
+
+**tsconfig.json**
+```js
+"compilerOptions": {
+    [...]
+    strictNullChecks: true
+    strict: true
+    strictFunctionTypes: true
+    strictBindCallApply: true
+}
 ```
 
 ### Generics
 
 Permite que um tipo seja definido durante o processo de implementação do mesmo. Dessa forma determinados valores passam a ter o tipo dinâmico.
 
-```
+```ts
 interface Gen<T> {
   name: string,
   age: number,
@@ -376,7 +382,7 @@ resolvePromise(fetch('https://api.nuxt.com'))
 Também podemos impor limites aos tipos, dizendo quais as propriedades básicas que o tipo passado deve possuir.
 No exemplo abaixo deixamos explicito que só queremos tipos que possuam a propriedade lenngth
 
-```
+```ts
 interface LengthWise {
   length: number
 }
@@ -388,7 +394,7 @@ function logginIdentity<Type extends LengthWise> (arg: Type) {
 
 Neste outro exemplo só permitiremos que o valor passado por argumento seja uma das chaves presentes no objeto.
 
-```
+```ts
 function getProperty<Type, Key extends keyof Type>(obj: Type, key: Key) {
   return obj[key];
 }
@@ -404,7 +410,7 @@ getProperty(x, "m");
 Any: é útil quando queremos o máximo de flexibilidade.
 Ex: Promise<any> quando não existe a necessidade demanipular o resultado a promise.
 
-```
+```ts
 const myAny: any = 'Hello Any'
 myAny.foo 
 ```
@@ -412,13 +418,13 @@ myAny.foo
  
  Unknown: é útil para valores privados que nós não queremos expor
 
- ```
+ ```ts
 const myUnknown: unknown = 'Hello Unknown'
 myUnknown.bar // type unknown não permite referenciar valor como 'bar'.
 ```
 
 Unknown também pode ser utlizado em conjunto com type-guards
-```
+```ts
 if (typeof myUnknown === 'string') {
   myUnknown.split('')
 }
@@ -431,7 +437,7 @@ if (myUnknown instanceof Promise) {
 
 Podemos criar nossos próprios type guards com o uso de 'Is' e 'As'
 
-```
+```ts
 interface HasEmail {
   name: string,
   email: string
@@ -461,7 +467,7 @@ function showContact(contact: HasEmail | HasPhone) {
 O type never diz que nunca deve ser atribuído ou retornado um valor. Como funções que sempre retornam uma exceção ou que possuem um loop infinito.
 Enquanto never não pode receber nenhum atribuição, o tipo 'void' pode receber undefined e null.
   
- ```
+ ```ts
  function callException (): never {
   throw new Error('ocorreu um erro') 
  }
@@ -469,9 +475,9 @@ Enquanto never não pode receber nenhum atribuição, o tipo 'void' pode receber
   
   ### Keyof
   
-  Permite referenciar as chaves de uma determinada interface e usá-la na composição dos tipos.
+Permite referenciar as chaves de uma determinada interface e usá-la na composição dos tipos.
   
-  ```
+```ts
 interface HasEmail {
   name: string,
   email: string
@@ -500,7 +506,7 @@ sendMessage('fax', { number: 27837485749 })
 ### Ternários
 no exemplo abaixo os tipo será definidos com base em uma condição, se for passado uma promise, o tipo será igual o tipo do retorno da promise, caso contrário o tipo será igual ao passado ao Generic.
   
-```
+```ts
 type conditionalType<T> = T extends Promise<infer S> ? S : T 
 
 let a: conditionalType<Promise<number>>
@@ -509,20 +515,22 @@ let b: conditionalType<string[]>
 
  ### Partial
   Transforma todas as propriedades de um tipo em opcionais.
-  ```
-  interface User {
+
+```ts
+interface User {
   name: string
   age: number
   occupation: string
 }
 
 type userData = Partial<User>
- ```
+```
   
 ### Pick
 Permite que peguemos uma ou mais propriedades de um outro tipo/interface
-```
-  interface User {
+
+```ts
+interface User {
   name: string
   age: number
   occupation: string,
@@ -537,8 +545,8 @@ type Professional = Pick<User, 'occupation' | 'company'>
 ### Extract
 Permite extrair apenas um subtipo específico de um tipo passado.
 
-```
- type onlyNumbers = Extract<'a' | 'b' | 1 | 2, number>
+```ts
+type onlyNumbers = Extract<'a' | 'b' | 1 | 2, number>
 let nums: onlyNumbers
 nums = 'a' // dispara um erro
 nums = 1
@@ -547,7 +555,7 @@ nums = 1
  ### Exclude
  Exclui um subtipo específico de um tipo passado.
  
- ```
+ ```ts
 type noNumbers = Extract<'a' | 'b' | 1 | 2, number>
 let nums: noNumbers
 nums = 'a'
@@ -557,7 +565,7 @@ nums = 1 // dispara um erro
 ### Readonly
 Cria um objeto cujos as propriedades não poderão ser reatribuídas
  
-```
+```ts
 let user: Readonly<User> = {
   name: 'Guilherme',
   age: 20,
@@ -570,7 +578,7 @@ user.name = 'Jonas'
 ### Record
 Constrói um tipo com o conjunto de propriedades passadas no primeiro argumento (keys), assumindo que elas também terão o tipo passado no segundo argumento (type).
  
- ```
+```ts
   interface InfoPagina {
   titulo: string;
 }
@@ -584,11 +592,11 @@ const nav: Record<Pagina, InfoPagina> = {
 };
  ```
   
-  ### Omit
-  Permite criar um novo tipo a partir de um já existente, omitindo algumas propriedades.
+### Omit
+Permite criar um novo tipo a partir de um já existente, omitindo algumas propriedades.
   
-  ```
-  interface Music {
+```ts
+interface Music {
     title: string
     author: string
     style: string
@@ -602,13 +610,13 @@ let myMusic:folkMusic = {
     author: 'Bob Dylan',
     duration: 5.34
 }
- ```
+```
 
   ### Merge de declarações
 
 Caso você declare diferentes categorias de dados utilizando o mesmo nome, elas serão integradas. Sendo que, você poderá acessar cada uma delas de acordo com o contexto.
 
-```
+```ts
 interface Album {
   artist: string
 }
