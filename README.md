@@ -1,4 +1,4 @@
-# Aprendendo Typescript
+# Learning Typescript
 
 ### Instalação
 
@@ -6,34 +6,34 @@
 yarn add -D typescript
 ```
 
-### Compilando o primeiro script
+### Compiling the first script
 
-Crie um arquivo **index.ts** e em seguida adicione o código
+
+Create a **index.ts** file and then add the code
 
 ```ts
 function greet (name: string):void {
   console.log(`Hello ${name}`)
 }
 
-greet('Guilherme')
+greet('Gui')
 
 export default greet
 ```
 
-Para compilar use o comando
+To compile, use the command
 
 ```node
 npx tsc index.ts
 ```
 
-Você pode adicionar parâmetros adicionais durante o processo de transpilação:
+You can add additional parameters during the transpilation process:
 
 ```node
 npx tsc index.ts --target es2015 --module commonjs --watch
 ```
 
-No exemplo acima o código será transpilado para es2015, utilizando o padrão de export "commonjs". Além disso o transpilador ficará escutando futuras alterações na base de código. 
-
+In the above example, the code will be transpiled to es2015, using the "commonjs" export pattern. Additionally, the transpiler will keep listening for future changes in the codebase.
 _____________________________________________________________________________________________________________________
 
 Uma outra forma de passar parâmetros, é com a utilização do **tsconfig.json**. Veja abaixo um exemplo:
