@@ -1,4 +1,4 @@
-# Learning Typescript
+# TypeScript Essentials: Hands-On Examples
 
 ### How to Install
 
