@@ -1,4 +1,4 @@
-# typescript
+# Aprendendo Typescript
 
 ### Instalação
 
