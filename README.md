@@ -1,6 +1,6 @@
 # Learning Typescript
 
-### Instalação
+### How to Install
 
 ```node
 yarn add -D typescript
